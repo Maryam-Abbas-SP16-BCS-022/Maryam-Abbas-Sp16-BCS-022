@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<p>Class Task</p>
+	<p id="para1">This is our first task of a class</p>
+<script type="text/javascript">
+
+function student(name,age,sem){
+	this.name=name;
+	this.age=age;
+	this.sem=sem;
+	
+}
+var std1=new student("Maryam",24,"8th");
+var std2=new student("Saba",22,"7th");
+var std3=new student("Sakeena",21,"6th");
+console.log("3 objects are created")
+student.prototype.program="mcs";
+
+console.log(std1);
+
+Object.defineProperty(student.prototype,"print_pro",{value:function get(){
+	console.log(this.name+","+this.age+","+this.sem+","+this.program)},
+writable:true
+});
+std1.print_pro()
+std2.print_pro()
+std3.print_pro()
+
+var array1= [std1,std2,std3];
+console.log("Array containing values: "+array1)
+
+var property=prompt("enter property name: ");
+index=0;
+if(array1[index][property]!=undefined)
+{
+	for (index=0;index<3;index++){
+		console.log(array1[index][property]);
+	}
+}
+else{
+		console.log("no matching property ")
+	}
+
+</script>
+</body>
+</html>
